@@ -36,6 +36,8 @@ After saving we can see all the configurations
 
 ![4](img/4.png)
 
+- Redirect url : `http://localhost:4200/*`
+
 #### Step 1.3 : Add roles
 ![5](img/5.png)
 
@@ -54,3 +56,5 @@ After saving we can see all the configurations
 
 `user:user`
 `admin:admin`
+
+- Assign role in `Role Mappings` tab
