@@ -34,12 +34,28 @@ export class ColorService {
   /** GET color by hexcode */
   getColor(hexcode: string): Observable<Color> {
     const url = `${this.colorsUrl}/user/color/${hexcode}`;
-    return this.http.get<Color>(url).pipe(
+    return this.http.get<Color>(url, this.httpOptions).pipe(
       tap(_ => this.log(`fetched color hexcode=${hexcode}`)),
       catchError(this.handleError<Color>(`getColor id=${hexcode}`))
     );
   }
 
+  deleteColor(color: Color | string): Observable<Color> {
+    const hexcode = typeof color === 'string' ? color : color.hexcode;
+    const url = `${this.colorsUrl}/admin/delete/${hexcode}`;
+    return this.http.get<Color>(url).pipe(
+      tap(_ => this.log(`deleted color hexcode=${hexcode}`)),
+      catchError(this.handleError<Color>('deleteColor'))
+    );
+  }
+
+  addColor(color: Color): Observable<Color> {
+    const url = `${this.colorsUrl}/admin/add`;
+    return this.http.post<Color>(url, color, this.httpOptions).pipe(
+      tap((newColor: Color) => this.log(`added color=${newColor.name}`)),
+      catchError(this.handleError<Color>('addColor'))
+    );
+  }
 
   /**
    * Handle Http operation that failed.

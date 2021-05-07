@@ -8,7 +8,6 @@ import { ColorService }  from '../colors.service';
 @Component({
   selector: 'app-color-detail',
   templateUrl: './color-detail.component.html',
-  styleUrls: [ './color-detail.component.css' ]
 })
 export class ColorDetailComponent implements OnInit {
   @Input() color: Color;
@@ -33,7 +32,4 @@ export class ColorDetailComponent implements OnInit {
     this.location.back();
   }
 
-  save(): void {
-    //this.colorService.updateColor(this.color).subscribe(() => this.goBack());
-  }
 }

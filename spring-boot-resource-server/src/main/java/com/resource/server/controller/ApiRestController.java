@@ -2,20 +2,22 @@ package com.resource.server.controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 import org.springframework.http.MediaType;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*")
+@CrossOrigin
 public class ApiRestController {
 
   
@@ -35,6 +37,23 @@ public class ApiRestController {
         return matchingObject.get();
     }
     
-   
+    @GetMapping(value = "/admin/delete/{hexcode}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Color deleteColor(@PathVariable("hexcode") String hexcode) {
+    	Optional<Color> matchingObject = Color.COLORS.stream().
+    		    filter(color -> color.getHexcode().equals(hexcode)).findFirst();
+    	//Remove
+    	return matchingObject.get();
+    }
+    
+    final String[] colorsArr = {"1f441e", "cee6b4", "9ecca4", "9b3675", "350b40", "ee99a0", "09015f", "f6c065"};
+    
+    @PostMapping(value = "/admin/add", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Color add(@RequestBody Color color) {
+    	Random random = new Random();
+    	int index = random.nextInt(colorsArr.length);
+    	color.setHexcode(colorsArr[index]);
+    	//add
+        return color;
+    }
 }
 

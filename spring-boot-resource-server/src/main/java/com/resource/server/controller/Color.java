@@ -8,16 +8,26 @@ public class Color {
 
     private String hexcode;
     private String name;
-
+    Color(){}
     Color(String hexcode, String name) {
         this.hexcode = hexcode;
         this.name = name;
     }
 
 
-    public String getHexcode() {
+    public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public String getHexcode() {
 		return hexcode;
 	}
+
+	public void setHexcode(String hexcode) {
+		this.hexcode = hexcode;
+	}
+
 
 	public String getName() {
         return name;

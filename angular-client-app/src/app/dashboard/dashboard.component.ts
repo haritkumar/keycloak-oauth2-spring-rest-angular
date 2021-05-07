@@ -17,6 +17,6 @@ export class DashboardComponent implements OnInit {
 
   getColors(): void {
     this.colorService.getColors()
-      .subscribe(colors => this.colors = colors.slice(1, 7));
+      .subscribe(colors => this.colors = colors.slice(1, 10));
   }
 }
