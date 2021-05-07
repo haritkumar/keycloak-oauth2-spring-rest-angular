@@ -58,3 +58,5 @@ After saving we can see all the configurations
 `admin:admin`
 
 - Assign role in `Role Mappings` tab
+
+npm install keycloak-angular keycloak-js --save 
