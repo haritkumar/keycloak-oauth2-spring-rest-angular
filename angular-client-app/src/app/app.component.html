@@ -1,8 +1,30 @@
-<h1>{{title}}</h1>
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/colors">Colors</a>
-  <a [routerLink]="" (click)="logoffAndRevokeTokens()">Logout</a>
-</nav>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+<div class="d-flex p-3 mx-auto flex-column">
+  <header class="masthead mb-5">
+    <div class="inner">
+      <h3 class="masthead-brand">Color Palette</h3>
+      <nav class="nav nav-masthead justify-content-center">
+        <a class="nav-link active" routerLink="/dashboard">Dashboard</a>
+        <a class="nav-link" routerLink="/colors">Colors</a>
+        <a class="nav-link" [routerLink]="" (click)="logoffAndRevokeTokens()">Logout</a>
+        <span class="nav-link">Hi, Harit</span>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main" class="inner cover">
+    <div class="row">
+      <div class="col-8">
+        <router-outlet></router-outlet>
+      </div>
+      <div class="col-4">
+        <app-messages></app-messages>
+      </div>
+     </div> 
+  </main>
+
+  <footer class="mastfoot mt-5">
+    <div class="inner">
+      <p>Securing application using openid connect and oAuth2</p>
+    </div>
+  </footer>
+</div>

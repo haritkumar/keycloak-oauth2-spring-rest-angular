@@ -1,9 +1,6 @@
-<h3>Top Colors</h3>
-<div class="grid grid-pad">
-  <a *ngFor="let color of colors" class="col-1-4"
-      routerLink="/detail/{{color.hexcode}}">
-    <div class="module color">
-      <h4>{{color.name}}</h4>
+<h4>Top 6 Colors</h4>
+<div class="row mt-3">
+    <div *ngFor="let color of colors" class="col-3 m-1 p-2" [ngStyle]="{backgroundColor: '#'+color.hexcode}">
+      <h5><a routerLink="/detail/{{color.hexcode}}">{{color.name}} <br/> {{color.hexcode}}</a></h5>
     </div>
-  </a>
-</div>
+</div>  

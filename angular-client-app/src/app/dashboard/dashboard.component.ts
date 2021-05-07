@@ -4,8 +4,7 @@ import { ColorService } from '../colors.service';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: [ './dashboard.component.css' ]
+  templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
   colors: Color[] = [];
@@ -18,6 +17,6 @@ export class DashboardComponent implements OnInit {
 
   getColors(): void {
     this.colorService.getColors()
-      .subscribe(colors => this.colors = colors.slice(1, 6));
+      .subscribe(colors => this.colors = colors.slice(1, 7));
   }
 }

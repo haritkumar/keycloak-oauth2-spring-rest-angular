@@ -1,20 +1,10 @@
-<h2>Palette Colors</h2>
-
-<div>
-  <label>Color name:
-    <input #colorName />
-  </label>
-  
-  <button (click)="add(colorName.value); colorName.value=''">
-    add
-  </button>
+<h4>All Colors</h4>
+<div class="row mt-3">
+  <div class="col-2 m-2 p-2" *ngFor="let color of colors" [ngStyle]="{backgroundColor: '#'+color.hexcode}">
+    <a routerLink="/detail/{{color.hexcode}}">{{color.name}} <br/> {{color.hexcode}}</a>
+    <br/>
+    <button class="btn btn-sm btn-light" title="Delete Color" (click)="delete(color)">x</button>
+  </div>
 </div>
 
-<ul class="colors">
-  <li *ngFor="let color of colors">
-    <a routerLink="/detail/{{color.hexcode}}">
-      <span class="badge">{{color.hexcode}}</span> {{color.name}}
-    </a>
-    <button class="delete" title="delete color frol pelette" (click)="delete(color)">x</button>
-  </li>
-</ul>
+

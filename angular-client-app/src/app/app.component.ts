@@ -5,11 +5,10 @@ import { JwksValidationHandler } from 'angular-oauth2-oidc-jwks';
 
 @Component({
 	selector: 'app-root',
-	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.css']
+	templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit{
-	title = 'Tour of Colors';
+	title = 'Pelette Colors';
 
 	constructor(private oauthService: OAuthService) {
 		this.oauthService.configure(authConfig);

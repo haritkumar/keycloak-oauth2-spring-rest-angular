@@ -12,6 +12,7 @@ import { ColorsComponent }      from './colors/colors.component';
 import { MessagesComponent }    from './messages/messages.component';
 import {OAuthModule} from 'angular-oauth2-oidc';
 import { LogoutComponent } from './logout/logout.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { LogoutComponent } from './logout/logout.component';
         sendAccessToken: true
       }
     }),
+    NgbModule,
   ],
   declarations: [
     AppComponent,
